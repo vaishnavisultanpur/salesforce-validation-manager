@@ -137,6 +137,10 @@ app.patch("/toggle-rule/:id", async (req, res) => {
   }
 });
 
+app.get("/test", (req, res) => {
+  res.send("TEST WORKING");
+});
+
 app.listen(process.env.PORT || 5000, () => {
   console.log("Server running");
 });
