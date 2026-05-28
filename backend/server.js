@@ -140,6 +140,13 @@ app.get("/test", (req, res) => {
   res.send("TEST WORKING");
 });
 
+app.get("/debug", (req, res) => {
+  res.json({
+    clientId: CLIENT_ID ? "FOUND" : "MISSING",
+    redirectUri: REDIRECT_URI
+  });
+});
+
 app.listen(process.env.PORT || 5000, () => {
   console.log("Server running");
 });
