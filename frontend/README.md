@@ -1,67 +1,66 @@
 # Salesforce Validation Rule Manager
 
-A full-stack Salesforce integration project developed for the Associate Software Engineer assignment.
+## Features
 
-This application connects a React frontend with Salesforce using OAuth 2.0 authentication and allows users to:
-
-- Login to Salesforce
-- Fetch Validation Rules from Salesforce
-- View Active/Inactive status
-- Toggle validation rules from the UI
-
----
-
-# Features
-
-## Salesforce OAuth 2.0 Authentication
-- Secure Salesforce login integration
-- Connected App / External Client App configuration
-- PKCE-based OAuth flow
-
-## Validation Rule Management
-- Fetch validation rules using Salesforce Tooling API
-- Display validation rule list
-- Show Active / Inactive status
-- Toggle validation rule state
-
-## Full Stack Architecture
-- React frontend
-- Node.js + Express backend
-- Salesforce API integration using JSForce
+* Salesforce OAuth Login
+* Fetch Validation Rules
+* Toggle Validation Rule Status
+* React Frontend
+* Node.js Backend
+* Salesforce Tooling API Integration
 
 ---
 
-# Tech Stack
-
-## Frontend
-- React.js
-- Axios
-
-## Backend
-- Node.js
-- Express.js
-- JSForce
-- Axios
-
-## Salesforce
-- OAuth 2.0
-- Tooling API
-- Connected App / External Client App
-
----
-
-# Project Structure
+## Backend Setup
 
 ```bash
-salesforce-validation-manager/
+cd backend
+npm install
+node server.js
+```
 
-├── backend/
-│   ├── server.js
-│   ├── package.json
-│
-├── frontend/
-│   ├── src/
-│   │   ├── App.js
-│   ├── package.json
-│
-├── README.md
+Backend runs on:
+`http://localhost:5000`
+
+---
+
+## Frontend Setup
+
+```bash
+cd frontend
+npm install
+npm start
+```
+
+Frontend runs on:
+`http://localhost:3000`
+
+---
+
+## Environment Variables
+
+Create `.env` inside backend:
+
+```env
+SF_CLIENT_ID=your_client_id
+SF_CLIENT_SECRET=your_client_secret
+```
+
+---
+
+## OAuth Callback URL
+
+```plaintext
+https://salesforce-validation-manager-iddf.onrender.com/oauth/callback
+```
+
+---
+
+## Technologies Used
+
+* React.js
+* Node.js
+* Express.js
+* Salesforce OAuth
+* JSForce
+* Axios
