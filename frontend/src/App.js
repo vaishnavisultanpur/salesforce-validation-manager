@@ -6,9 +6,12 @@ function App() {
   const [rules, setRules] = useState([]);
   const [loading, setLoading] = useState(false);
 
+  const BASE_URL =
+    "https://salesforce-validation-manager-iddf.onrender.com";
+
   const loginToSalesforce = () => {
     window.location.href =
-      "http://localhost:5000/auth/login";
+      `${BASE_URL}/auth/login`;
   };
 
   const fetchRules = async () => {
@@ -18,7 +21,7 @@ function App() {
       setLoading(true);
 
       const response = await axios.get(
-        "http://localhost:5000/validation-rules"
+        `${BASE_URL}/validation-rules`
       );
 
       setRules(response.data);
@@ -36,36 +39,37 @@ function App() {
 
   const toggleRule = async (id, active) => {
 
-  try {
+    try {
 
-    await axios.patch(
-      `http://localhost:5000/toggle-rule/${id}`,
-      {
-        active: !active,
-      }
-    );
+      await axios.patch(
+        `${BASE_URL}/toggle-rule/${id}`,
+        {
+          active: !active,
+        }
+      );
 
-    const updatedRules = rules.map((rule) => {
+      const updatedRules = rules.map((rule) => {
 
-      if (rule.Id === id) {
+        if (rule.Id === id) {
 
-        return {
-          ...rule,
-          Active: !active,
-        };
-      }
+          return {
+            ...rule,
+            Active: !active,
+          };
+        }
 
-      return rule;
-    });
+        return rule;
+      });
 
-    setRules(updatedRules);
+      setRules(updatedRules);
 
-  } catch (error) {
+    } catch (error) {
 
-    console.error(error);
-    alert("Toggle failed");
-  }
-};
+      console.error(error);
+      alert("Toggle failed");
+    }
+  };
+
   return (
 
     <div style={{ padding: "30px" }}>
@@ -140,3 +144,4 @@ function App() {
 }
 
 export default App;
+
