@@ -26,8 +26,7 @@ const CLIENT_ID = process.env.SF_CLIENT_ID;
 const CLIENT_SECRET = process.env.SF_CLIENT_SECRET;
 
 const REDIRECT_URI =
-  "http://localhost:5000/oauth/callback";
-
+  "https://salesforce-validation-backend.onrender.com/oauth/callback";
 const LOGIN_URL = "https://login.salesforce.com";
 
 let conn;
